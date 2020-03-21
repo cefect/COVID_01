@@ -32,7 +32,7 @@ del hard_dependencies, dependency, missing_dependencies
 import numpy as np
 import pandas as pd
 import datetime, time, multiprocessing, itertools, sys
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 #===============================================================================
 # setup R
@@ -113,43 +113,17 @@ if __name__ == '__main__':          # For windows thread
     #s.script_import = 'COVIDScenarioPipeline/R/distribute_airport_importations_to_counties.R'
 
     #s.set_filter(np.loadtxt('data/west-coast-AZ-NV/filtergithub.txt'))
-    #===========================================================================
-    # print()
-    # print()
-    # print(f">>> Starting {s.nsim} model runs on {pars[3]} processes")
-    # print(f">>> Setup *** {s.setup_name} *** from {s.ti} to {s.tf} !")
-    # print(f">>> writing to folder : {s.datadir}{s.setup_name}")
-    # print()
-    # print()
-    #===========================================================================
+    print()
+    print()
+    print(f">>> Starting {s.nsim} model runs on {pars[3]} processes")
+    print(f">>> Setup *** {s.setup_name} *** from {s.ti} to {s.tf} !")
+    print(f">>> writing to folder : {s.datadir}{s.setup_name}")
+    print()
+    print()
+    
     tic = time.time()
   
     res_l = seir.run_parallel(s, int(pars[3]))
     print(f">>> Runs done in {time.time()-tic} seconds...")
     
-#===============================================================================
-#     res_2 = seir.onerun_SEIR(s, int(pars[3]))
-# 
-#     #build the results instance
-#     results = results.Results(s, res_l)
-# 
-#     simR = results.save_output_for_R(res_l)
-# 
-#     results.plot_quick_summary()
-# 
-#     results.build_comp_data()  # Long !!
-# 
-#     nodes_to_plot = [int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID].id),
-#                     int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID1].id)]
-# 
-# 
-# 
-#     fig, axes = results.plot_all_comp(nodes_to_plot)
-#     fig.autofmt_xdate()
-# 
-#     results.plot_comp_mult('cumI', nodes_to_plot)
-#     fig, axes = results.plot_comp('cumI', nodes_to_plot)
-# 
-#     if s.interactive:
-#         plt.show()
-#===============================================================================
+
