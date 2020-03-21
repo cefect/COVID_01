@@ -34,8 +34,10 @@ import pandas as pd
 import datetime, time, multiprocessing, itertools, sys
 import matplotlib.pyplot as plt
 
+#===============================================================================
+# setup R
+#===============================================================================
 
-#set the R_USER variable
 import os
 os.environ["R_USER"] = "R_USER"
 os.environ["R_HOME"] = r"C:\Program Files\R\R-3.6.3" #point to your R install
@@ -122,32 +124,32 @@ if __name__ == '__main__':          # For windows thread
     #===========================================================================
     tic = time.time()
   
-    #===========================================================================
-    # res_l = seir.run_parallel(s, int(pars[3]))
-    # print(f">>> Runs done in {time.time()-tic} seconds...")
-    #===========================================================================
+    res_l = seir.run_parallel(s, int(pars[3]))
+    print(f">>> Runs done in {time.time()-tic} seconds...")
     
-    res_2 = seir.onerun_SEIR(s, int(pars[3]))
-
-    #build the results instance
-    results = results.Results(s, res_l)
-
-    simR = results.save_output_for_R(res_l)
-
-    results.plot_quick_summary()
-
-    results.build_comp_data()  # Long !!
-
-    nodes_to_plot = [int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID].id),
-                    int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID1].id)]
-
-
-
-    fig, axes = results.plot_all_comp(nodes_to_plot)
-    fig.autofmt_xdate()
-
-    results.plot_comp_mult('cumI', nodes_to_plot)
-    fig, axes = results.plot_comp('cumI', nodes_to_plot)
-
-    if s.interactive:
-        plt.show()
+#===============================================================================
+#     res_2 = seir.onerun_SEIR(s, int(pars[3]))
+# 
+#     #build the results instance
+#     results = results.Results(s, res_l)
+# 
+#     simR = results.save_output_for_R(res_l)
+# 
+#     results.plot_quick_summary()
+# 
+#     results.build_comp_data()  # Long !!
+# 
+#     nodes_to_plot = [int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID].id),
+#                     int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID1].id)]
+# 
+# 
+# 
+#     fig, axes = results.plot_all_comp(nodes_to_plot)
+#     fig.autofmt_xdate()
+# 
+#     results.plot_comp_mult('cumI', nodes_to_plot)
+#     fig, axes = results.plot_comp('cumI', nodes_to_plot)
+# 
+#     if s.interactive:
+#         plt.show()
+#===============================================================================
