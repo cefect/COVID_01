@@ -31,6 +31,9 @@ S, E, I1, I2, I3, R, cumI = np.arange(ncomp)
 
 
 def onerun_SEIR(s, uid):
+    """
+    main function for simulating
+    """
     scipy.random.seed()
     #p = setup.COVID19Parameters(s)
     r_assign('ti_str', str(s.ti))
@@ -90,7 +93,9 @@ def onerun_SEIR(s, uid):
         out_df['comp'].replace(cumI,  'cumI', inplace=True)
         out_df['comp'].replace(ncomp, 'diffI', inplace=True)
         str(uuid.uuid4())[:2]
-        out_df.to_csv(f"{s.datadir}{s.timestamp}_{s.setup_name}_{str(uuid.uuid4())}.csv", index='time', index_label='time')
+        ofp = f"{s.datadir}{s.timestamp}_{s.setup_name}_{str(uuid.uuid4())}.csv"
+        out_df.to_csv(ofp, index='time', index_label='time')
+        print('    saving %i entries to %s'%(len(out_df), ofp))
 
     return 1
     

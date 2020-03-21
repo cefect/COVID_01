@@ -61,7 +61,7 @@ rinterface.initr()
 import seir_fix01 as seir
 import setup_fix01 as setup
 #from COVIDScenarioPipeline.SEIR import setup
-from COVIDScenarioPipeline.SEIR import results
+#from COVIDScenarioPipeline.SEIR import results
 
 class WestCoastSpatialSetup():
     """
