@@ -14,11 +14,17 @@ r_source = robjects.r['source']
 r_assign = robjects.r['assign']
 r_options = robjects.r['options']
 r_options(warn=-1)
-from rpy2.rinterface_lib.callbacks import logger as rpy2_logger
+#from rpy2.rinterface_lib.callbacks import logger as rpy2_logger
 import logging, scipy
-from COVIDScenarioPipeline.SEIR import setup
+rpy2_logger = logging.getLogger()
+#rom COVIDScenarioPipeline.SEIR import setup
+import setup_fix01 as setup
+
 rpy2_logger.setLevel(logging.ERROR)
 import uuid
+"""
+setup.parameters_quick_draw
+"""
 
 ncomp = 7
 S, E, I1, I2, I3, R, cumI = np.arange(ncomp)

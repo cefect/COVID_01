@@ -1,3 +1,34 @@
+#===============================================================================
+# test dependencies
+#===============================================================================
+
+
+#==============================================================================
+# dependency check
+#==============================================================================
+# Let users know if they're missing any of our hard dependencies
+hard_dependencies = ('pandas', 'numpy','seaborn','matplotlib','geopy','tqdm', 'geopandas','shapely','numba','rpy2')
+missing_dependencies = []
+
+for dependency in hard_dependencies:
+    try:
+        __import__(dependency)
+    except ImportError as e:
+        missing_dependencies.append("{0}: {1}".format(dependency, str(e)))
+
+if missing_dependencies:
+    raise ImportError(
+        "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+    )
+    
+del hard_dependencies, dependency, missing_dependencies
+
+#===============================================================================
+# imports
+#===============================================================================
+
+
+
 import numpy as np
 import pandas as pd
 import datetime, time, multiprocessing, itertools, sys
@@ -6,7 +37,7 @@ import matplotlib.pyplot as plt
 
 #set the R_USER variable
 import os
-os.environ["R_USER"] = "myName"
+os.environ["R_USER"] = "R_USER"
 os.environ["R_HOME"] = r"C:\Program Files\R\R-3.6.3" #point to your R install
 
 #setup the rinterface
@@ -25,9 +56,10 @@ rinterface.initr()
 # import custom modules
 #===============================================================================
 
-from seir_fix01 import seir
-from COVIDScenarioPipeline.SEIR import setup
-#from COVIDScenarioPipeline.SEIR import results
+import seir_fix01 as seir
+import setup_fix01 as setup
+#from COVIDScenarioPipeline.SEIR import setup
+from COVIDScenarioPipeline.SEIR import results
 
 class WestCoastSpatialSetup():
     """
@@ -48,9 +80,9 @@ if __name__ == '__main__':          # For windows thread
     # test pars
     #===========================================================================
     pars = {
-        1: 2,
+        1: 2, #number of s imulations
         2: 'NoNPI',
-        3: 5,        
+        3: 2, #number of threadas
         }
     
     #===========================================================================
@@ -90,29 +122,32 @@ if __name__ == '__main__':          # For windows thread
     #===========================================================================
     tic = time.time()
   
-    seir = seir.run_parallel(s, int(pars[3]))
-    print(f">>> Runs done in {time.time()-tic} seconds...")
+    #===========================================================================
+    # res_l = seir.run_parallel(s, int(pars[3]))
+    # print(f">>> Runs done in {time.time()-tic} seconds...")
+    #===========================================================================
+    
+    res_2 = seir.onerun_SEIR(s, int(pars[3]))
 
-#===============================================================================
-#     results = results.Results(s, seir)
-# 
-#     simR = results.save_output_for_R(seir)
-# 
-#     results.plot_quick_summary()
-# 
-#     results.build_comp_data()  # Long !!
-# 
-#     nodes_to_plot = [int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID].id),
-#                     int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID1].id)]
-# 
-# 
-# 
-#     fig, axes = results.plot_all_comp(nodes_to_plot)
-#     fig.autofmt_xdate()
-# 
-#     results.plot_comp_mult('cumI', nodes_to_plot)
-#     fig, axes = results.plot_comp('cumI', nodes_to_plot)
-# 
-#     if s.interactive:
-#         plt.show()
-#===============================================================================
+    #build the results instance
+    results = results.Results(s, res_l)
+
+    simR = results.save_output_for_R(res_l)
+
+    results.plot_quick_summary()
+
+    results.build_comp_data()  # Long !!
+
+    nodes_to_plot = [int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID].id),
+                    int(s.spatset.data[s.spatset.data['geoid']== SomeGEOID1].id)]
+
+
+
+    fig, axes = results.plot_all_comp(nodes_to_plot)
+    fig.autofmt_xdate()
+
+    results.plot_comp_mult('cumI', nodes_to_plot)
+    fig, axes = results.plot_comp('cumI', nodes_to_plot)
+
+    if s.interactive:
+        plt.show()
