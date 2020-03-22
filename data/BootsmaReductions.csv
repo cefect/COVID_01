@@ -1,0 +1,168 @@
+Scenario,Place,Reduction
+1,Atlanta,0.47
+1,Baltimore,0.49
+1,Chicago,0.21
+1,Fall River,0
+1,Indianapolis,0.13
+1,Kansas City (1),0.38
+1,Kansas City (2),0.25
+1,Milwaukee (1),0.44
+1,Milwaukee (2),0.48
+1,Minneapolis,0.18
+1,New York (1),0.24
+1,New York (2),0.2
+1,Newark,0
+1,Phillidelphia,0.28
+1,Pittsburgh (1),0.26
+1,Pittsburgh (2),0
+1,San Francisco (1),0.42
+1,San Francisco (2),0.46
+1,Spokane,0
+1,St. Louis (1),0.44
+1,St. Louis (2),0
+1,St. Louis (3),0.33
+1,Washington,0.46
+2,Atlanta,0.39
+2,Baltimore,0.61
+2,Chicago,0.42
+2,Fall River,0.46
+2,Indianapolis,0.33
+2,Kansas City (1),0.39
+2,Kansas City (2),0.27
+2,Milwaukee (1),0.48
+2,Milwaukee (2),0.55
+2,Minneapolis,0.21
+2,New York (1),0
+2,New York (2),0.62
+2,Newark,0.82
+2,Phillidelphia,0.72
+2,Pittsburgh (1),0
+2,Pittsburgh (2),0.36
+2,San Francisco (1),0.49
+2,San Francisco (2),0.54
+2,Spokane (1),0.28
+2,Spokane (2),0.23
+2,St. Louis (1),0.42
+2,St. Louis (2),0.04
+2,St. Louis (3),0.36
+2,Washington,0.55
+4,Atlanta,0.32
+4,Baltimore,0.52
+4,Chicago,0.3
+4,Fall River,0.33
+4,Indianapolis,0.38
+4,Kansas City (1),0.53
+4,Kansas City (2),0.36
+4,Milwaukee (1),0.48
+4,Milwaukee (2),0.43
+4,Minneapolis,0.37
+4,New York (1),0.26
+4,New York (2),0.03
+4,Newark,0.51
+4,Phillidelphia,0.38
+4,Pittsburgh (1),0.22
+4,Pittsburgh (2),0
+4,San Francisco (1),0.54
+4,San Francisco (2),0.55
+4,Spokane (1),0.37
+4,Spokane (2),0.3
+4,St. Louis (1),0.44
+4,St. Louis (2),0
+4,St. Louis (3),0.37
+4,Washington,0.47
+5,Atlanta,0.47
+5,Baltimore,0.46
+5,Chicago,0.37
+5,Fall River,0.42
+5,Indianapolis,0.51
+5,Kansas City (1),0.48
+5,Kansas City (2),0.39
+5,Milwaukee (1),0.65
+5,Milwaukee (2),0.56
+5,Minneapolis,0.35
+5,New York (1),0
+5,New York (2),0.62
+5,Newark,0.86
+5,Phillidelphia,0.52
+5,Pittsburgh (1),0
+5,Pittsburgh (2),0.52
+5,San Francisco (1),0.48
+5,San Francisco (2),0.53
+5,Spokane (1),0.31
+5,Spokane (2),0
+5,St. Louis (1),0.38
+5,St. Louis (2),0.04
+5,St. Louis (3),0.32
+5,Washington,0.42
+6,Atlanta,0.29
+6,Baltimore,0.41
+6,Chicago,0.28
+6,Fall River,0
+6,Indianapolis,0.19
+6,Kansas City (1),0.34
+6,Kansas City (2),0.17
+6,Milwaukee (1),0.44
+6,Milwaukee (2),0.49
+6,Minneapolis,0.15
+6,New York (1),0
+6,New York (2),0.37
+6,Newark,0.22
+6,Phillidelphia,0.34
+6,Pittsburgh (1),0
+6,Pittsburgh (2),0
+6,San Francisco (1),0.36
+6,San Francisco (2),0.68
+6,Spokane (1),0.1
+6,Spokane (2),0.05
+6,St. Louis (1),0.46
+6,St. Louis (2),0
+6,St. Louis (3),0.33
+6,Washington,0
+7,Atlanta,0.41
+7,Baltimore,0.14
+7,Chicago,0.2
+7,Fall River,0
+7,Indianapolis,0.3
+7,Kansas City (1),0.38
+7,Kansas City (2),0.2
+7,Milwaukee (1),0.6
+7,Milwaukee (2),0.55
+7,Minneapolis,0.29
+7,New York (1),0
+7,New York (2),0.4
+7,Newark,0.32
+7,Phillidelphia,0
+7,Pittsburgh (1),0.11
+7,Pittsburgh (2),0
+7,San Francisco (1),0.35
+7,San Francisco (2),0.67
+7,Spokane (1),0.27
+7,Spokane (2),0.13
+7,St. Louis (1),0.35
+7,St. Louis (2),0
+7,St. Louis (3),0.23
+7,Washington,0.3
+8,Atlanta,0.15
+8,Baltimore,0.53
+8,Chicago,0
+8,Fall River,0
+8,Indianapolis,0.31
+8,Kansas City (1),0.45
+8,Kansas City (2),0.29
+8,Milwaukee (1),0.35
+8,Milwaukee (2),0.27
+8,Minneapolis,0
+8,New York (1),0
+8,New York (2),0
+8,Newark,0.23
+8,Phillidelphia,0
+8,Pittsburgh (1),0.13
+8,Pittsburgh (2),0
+8,San Francisco (1),0.49
+8,San Francisco (2),0.41
+8,Spokane (1),0.36
+8,Spokane (2),0.29
+8,St. Louis (1),0.39
+8,St. Louis (2),0
+8,St. Louis (3),0.34
+8,Washington,0
