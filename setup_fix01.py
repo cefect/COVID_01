@@ -87,6 +87,7 @@ class COVID19Parameters():
         
         if 'low' in s.setup_name: self.R0s = np.random.uniform(.6, 1.3, s.nbetas)   # np.random.uniform(1.5, 2, nbetas)
         if 'mid' in s.setup_name: self.R0s = np.random.uniform(2, 3, s.nbetas)
+        if 'South' in s.setup_name: self.R0s = np.random.uniform(.6, 1.3, s.nbetas)
 
         self.betas = np.multiply(self.R0s, self.gamma) / n_Icomp
 
@@ -128,7 +129,8 @@ def parameters_quick_draw(s, npi):
         
         if 'low' in s.setup_name: R0s = np.random.uniform(1.5, 2)   # np.random.uniform(1.5, 2, nbetas)
         if 'mid' in s.setup_name: R0s = np.random.uniform(2, 3)
-
+        if 'South' in s.setup_name: R0s = np.random.uniform(.6, 1.3)
+        
         beta = np.multiply(R0s, gamma) / n_Icomp
         #print(beta, gamma,  sigma)
         
