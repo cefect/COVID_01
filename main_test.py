@@ -40,7 +40,7 @@ import datetime, time, multiprocessing, itertools, sys
 
 import os
 os.environ["R_USER"] = "R_USER"
-os.environ["R_HOME"] = r"C:\Program Files\R\R-3.6.3" #point to your R install
+#os.environ["R_HOME"] = r"C:\Program Files\R\R-3.6.3" #point to your R install
 
 #setup the rinterface
 import rpy2.rinterface as rinterface
@@ -87,6 +87,10 @@ if __name__ == '__main__':          # For windows thread
         3: 2, #number of threadas
         }
     
+    scen_dir = r'C:\LS\03_TOOLS\_git\COVID_01\scenarios'
+    
+    
+    
     #===========================================================================
     # execute
     #===========================================================================
@@ -98,17 +102,32 @@ if __name__ == '__main__':          # For windows thread
                     interactive = False,
                     write_csv = True,
                     dt = 1/4)
+    
+    
+    scen_d = {
+        'NoNPI':'NPI_Scenario1_None.R',
+        'BI1918':'NPI_Scenario2_Bootsma_1918Influenza.R',
+        'SouthKorea':'NPI_Scenario3_SouthKorea.R',
+        'ReducedGamma':'NPI_Scenario4_ReducedGamma.R',       
+        }
+    
+    
 
-    if (pars[2] == 'NoNPI'):
-        s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario1_None.R'
-    if (pars[2] == 'SC'):
-        s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario2_School_Closure.R'
-    if (pars[2] == 'BI1918'):
-        s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario3_Bootsma_1918Influenza.R'
-    if (pars[2] == 'KansasCity'):
-        s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario4_KansasCity.R'
-    if (pars[2] == 'Wuhan'):
-        s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario5_Wuhan.R'
+
+
+
+    #===========================================================================
+    # if (pars[2] == 'NoNPI'):
+    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario1_None.R'
+    # if (pars[2] == 'SC'):
+    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario2_School_Closure.R'
+    # if (pars[2] == 'BI1918'):
+    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario3_Bootsma_1918Influenza.R'
+    # if (pars[2] == 'KansasCity'):
+    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario4_KansasCity.R'
+    # if (pars[2] == 'Wuhan'):
+    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario5_Wuhan.R'
+    #===========================================================================
     
     #s.script_import = 'COVIDScenarioPipeline/R/distribute_airport_importations_to_counties.R'
 
