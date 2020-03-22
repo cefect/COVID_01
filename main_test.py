@@ -40,7 +40,7 @@ import datetime, time, multiprocessing, itertools, sys
 
 import os
 os.environ["R_USER"] = "R_USER"
-#os.environ["R_HOME"] = r"C:\Program Files\R\R-3.6.3" #point to your R install
+os.environ["R_HOME"] = r"C:\Program Files\R\R-3.6.3" #point to your R install
 
 #setup the rinterface
 import rpy2.rinterface as rinterface
@@ -92,7 +92,7 @@ if __name__ == '__main__':          # For windows thread
     
     
     #===========================================================================
-    # execute
+    # setup
     #===========================================================================
     s = setup.Setup(setup_name = 'mid_utah_'+pars[2],
                     spatial_setup = WestCoastSpatialSetup(),
@@ -103,35 +103,30 @@ if __name__ == '__main__':          # For windows thread
                     write_csv = True,
                     dt = 1/4)
     
-    
+    #===========================================================================
+    # set the scenario parmaters
+    #===========================================================================
     scen_d = {
         'NoNPI':'NPI_Scenario1_None.R',
         'BI1918':'NPI_Scenario2_Bootsma_1918Influenza.R',
         'SouthKorea':'NPI_Scenario3_SouthKorea.R',
-        'ReducedGamma':'NPI_Scenario4_ReducedGamma.R',       
+        'Reduced':'NPI_Scenario4_ReducedGamma.R',       
         }
     
     
-
-
-
-
-    #===========================================================================
-    # if (pars[2] == 'NoNPI'):
-    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario1_None.R'
-    # if (pars[2] == 'SC'):
-    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario2_School_Closure.R'
-    # if (pars[2] == 'BI1918'):
-    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario3_Bootsma_1918Influenza.R'
-    # if (pars[2] == 'KansasCity'):
-    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario4_KansasCity.R'
-    # if (pars[2] == 'Wuhan'):
-    #     s.script_npi = 'COVIDScenarioPipeline/data/NPI_Scenario5_Wuhan.R'
-    #===========================================================================
+    assert pars[2] in scen_d, 'unrecognized scenario: %s'%pars[2]
     
-    #s.script_import = 'COVIDScenarioPipeline/R/distribute_airport_importations_to_counties.R'
+    rfp = os.path.join(scen_dir, scen_d[pars[2]])
+    assert os.path.exists(rfp)
+    
+    s.script_npi = rfp
+    
+    print('set script_npi=%s'%s.script_npi)
 
-    #s.set_filter(np.loadtxt('data/west-coast-AZ-NV/filtergithub.txt'))
+    #===========================================================================
+    # execute
+    #===========================================================================
+
     print()
     print()
     print(f">>> Starting {s.nsim} model runs on {pars[3]} processes")

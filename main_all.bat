@@ -22,10 +22,26 @@ set R_HOME=C:\Program Files\R\R-3.6.3
 @ECHO on
 REM define the simulation parameters
 set sim_cnt=2
-set scen_nm=NoNPI
+
 set threads=2
 
-REM execute the script
+REM execute the script 1
+set scen_nm=NoNPI
+%py_dir%\python.exe main.py %sim_cnt% %scen_nm% %threads%
+
+
+REM execute the script 1
+set scen_nm=BI1918
+%py_dir%\python.exe main.py %sim_cnt% %scen_nm% %threads%
+
+
+REM execute the script 1
+set scen_nm=SouthKorea
+%py_dir%\python.exe main.py %sim_cnt% %scen_nm% %threads%
+
+
+REM execute the script 1
+set scen_nm=Reduced
 %py_dir%\python.exe main.py %sim_cnt% %scen_nm% %threads%
 
 pause
