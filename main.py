@@ -192,8 +192,8 @@ if __name__ == '__main__':          # For windows thread
         
         for indxr, sname in enumerate([
             'NoNPI', 
-            'SouthKorea',  
-            'Reduced', 
+            #'SouthKorea',  
+            #'Reduced', 
             #'BI1918'
             ]):
             print('\n \nrun %i: %s \n \n'%(indxr, sname))
@@ -201,7 +201,7 @@ if __name__ == '__main__':          # For windows thread
             try:
                 run({
                 0:'placeholder',
-                1: 1000, #number of s imulations
+                1: 10000, #number of s imulations
                 2: sname,
                 3: 5, #number of threadas
                 })
