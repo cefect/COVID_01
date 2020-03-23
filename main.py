@@ -191,10 +191,10 @@ if __name__ == '__main__':          # For windows thread
         
         
         for indxr, sname in enumerate([
-            'NoNPI', 
+            #'NoNPI', 
             #'SouthKorea',  
             #'Reduced', 
-            #'BI1918'
+            'BI1918'
             ]):
             print('\n \nrun %i: %s \n \n'%(indxr, sname))
             
