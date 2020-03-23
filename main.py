@@ -193,17 +193,17 @@ if __name__ == '__main__':          # For windows thread
         for indxr, sname in enumerate([
             #'NoNPI', 
             #'SouthKorea',  
-            #'Reduced', 
-            'BI1918'
+            'Reduced', 
+            #'BI1918'
             ]):
             print('\n \nrun %i: %s \n \n'%(indxr, sname))
             
             try:
                 run({
                 0:'placeholder',
-                1: 10000, #number of s imulations
+                1: 2, #number of s imulations
                 2: sname,
-                3: 5, #number of threadas
+                3: 2, #number of threadas
                 })
             except Exception as e:
                 print('FAILED on %s w/ \n%s'%(sname, e))
